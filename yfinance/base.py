@@ -53,7 +53,12 @@ class TickerBase():
         self._sustainability = None
         self._recommendations = None
         self._major_holders = None
-        self._institutional_holders = None
+#         self._institutional_holders = None
+        try:
+            self._institutional_holders = holders[1]
+        except:
+            self._institutional_holders = 'None'
+            pass
         self._isin = None
 
         self._calendar = None
