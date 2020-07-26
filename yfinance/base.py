@@ -285,9 +285,16 @@ class TickerBase():
         data = utils.get_json(url, proxy)
 
         # holders
-        url = "{}/{}/holders".format(self._scrape_url, self.ticker)
-        holders = _pd.read_html(url)
+#         url = "{}/{}/holders".format(self._scrape_url, self.ticker)
+#         holders = _pd.read_html(url)
+        
+        url = "{}/{}".format(self._scrape_url, self.ticker)
+        holders = _pd.read_html(url+'\holders')
+        
+        
         self._major_holders = holders[0]
+        
+        
         
         try:
             self._institutional_holders = holders[1]
